@@ -49,20 +49,25 @@ let
   ];
 
   fonts = [ ] ++ shlomoFonts;
-in
-  stdenv.mkDerivation {
-    name = "adam-torah";
+in { book, startChapter, startVerse, endChapter, endVerse }:
+  stdenv.mkDerivation rec {
+    name = "${book}_${startChapter}_${startVerse}_${endChapter}_${endVerse}";
     src = ./.;
     buildInputs = [
       tex
+      coreutils
+      gnugrep
+      gnused
     ];
 
     buildPhase = ''
-      mkdir $out
+      ./main.sh ${book} ${startChapter} ${startVerse} ${endChapter} ${endVerse} > ${name}.tex
+      latexmk --xelatex "${name}.tex"
     '';
-    
+
     installPhase = ''
-      echo install
+      mkdir -p $out
+      cp ${name}.pdf $out
     '';
 
     FONTCONFIG_FILE = makeFontsConf { fontDirectories = fonts; };

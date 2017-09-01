@@ -86,17 +86,4 @@ make_tex() {
     echo "\end{document}"
 }
 
-
-main() {
-    NAME="${BOOK}_${STARTCHAP}_${STARTVERSE}_${ENDCHAP}_${ENDVERSE}"
-    TMP=$(mktemp --tmpdir -d torah-makerXXXXXX)
-
-    make_tex > "$TMP/$NAME.tex"
-    pushd $TMP
-    latexmk --xelatex "$NAME.tex"
-    popd
-    cp "$TMP/$NAME.pdf" .
-    rm -rf $TMP
-}
-
-main
+make_tex
