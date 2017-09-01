@@ -30,3 +30,7 @@ open result/Genesis_1_1_1_10.pdf
 
 <image src="https://user-images.githubusercontent.com/5283991/29955856-bc21ecbc-8eb0-11e7-802e-d3ee6905d013.jpg" width="1000px"></image>
 <image src="https://user-images.githubusercontent.com/5283991/29955857-bc23bf7e-8eb0-11e7-826e-736cd74b97fa.jpg" width="1000px"></image>
+
+# License
+
+This project is licensed under the MIT License - see the [LICENSE.txt](LICENSE.txt) file for details
