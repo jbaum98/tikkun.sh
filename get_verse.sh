@@ -3,7 +3,7 @@
 pad_to() {
     echo -n "$1"
     for i in $(seq "$((${#1}+1))" $2); do
-        printf '\u00a0'
+        printf '\xC2\xA0'
     done
 }
 
@@ -15,7 +15,7 @@ get_verse() {
     TYPE=$2
     CHAP=$3
     VERSE=$4
-    cat "$BASE/data/$BOOK.$TYPE.txt" | grep "^$(printf '\u202b\u00a0')$(pad_to $VERSE 3)$(printf '\u05c3')$(pad_to $CHAP 3)$(printf '\u00a0')" | trim_verse
+    cat "$BASE/data/$BOOK.$TYPE.txt" | grep "^$(printf '\xE2\x80\xAB\xC2\xA0')$(pad_to $VERSE 3)$(printf '\xD7\x83')$(pad_to $CHAP 3)$(printf '\xC2\xA0')" | trim_verse
     return $?
 }
 
