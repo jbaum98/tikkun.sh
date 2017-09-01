@@ -2,7 +2,7 @@
 with (nixpkgs.pkgs);
 let
   tex = texlive.combine {
-    inherit (texlive) scheme-basic xetex xetex-def euenc bidi latexmk polyglossia extsizes xcolor ms collection-langother;
+    inherit (texlive) scheme-basic xetex xetex-def euenc bidi latexmk polyglossia extsizes xcolor ms;
   };
 
   ezraFont = stdenv.mkDerivation rec {
