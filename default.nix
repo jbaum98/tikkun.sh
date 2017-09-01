@@ -1,5 +1,4 @@
-{ nixpkgs ? import <nixpkgs> {} }:
-with (nixpkgs.pkgs);
+{ stdenv, fetchurl, fetchzip, makeFontsConf, texlive }:
 let
   tex = texlive.combine {
     inherit (texlive) scheme-basic xetex xetex-def euenc bidi latexmk polyglossia extsizes xcolor ms;
@@ -55,9 +54,6 @@ in { book, startChapter, startVerse, endChapter, endVerse }:
     src = ./.;
     buildInputs = [
       tex
-      coreutils
-      gnugrep
-      gnused
     ];
 
     buildPhase = ''
