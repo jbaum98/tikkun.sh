@@ -32,14 +32,16 @@ get_verse() {
     TYPE=$1
     CHAP=$2
     VERSE=$3
-    cat "$BASE/data/$BOOK.$TYPE.txt" | grep "^$(printf '\xE2\x80\xAB\xC2\xA0')$(pad_to $VERSE 3)$(printf '\xD7\x83')$(pad_to $CHAP 3)$(printf '\xC2\xA0')" | trim_verse
+
+    header="$(printf '\xE2\x80\xAB\xC2\xA0')$(pad_to $VERSE 3)$(printf '\xD7\x83')$(pad_to $CHAP 3)$(printf '\xC2\xA0')"
+    cat "$BASE/data/$BOOK.$TYPE.txt" | grep "^$header" | trim_verse "${#header}"
     return $?
 }
 
 trim_verse() {
     x="$(tee)"
     if [[ ! -z $x ]]; then
-        echo "${x:10:-3}"
+        echo "${x:$1:${#x}-3}"
     fi
 }
 
