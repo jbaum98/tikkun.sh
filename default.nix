@@ -2,7 +2,7 @@
 with (nixpkgs.pkgs);
 let
   tex = texlive.combine {
-    inherit (texlive) scheme-basic xetex xetex-def euenc bidi latexmk polyglossia extsizes xcolor ms babel babel-hebrew collection-langother;
+    inherit (texlive) scheme-basic xetex xetex-def euenc bidi latexmk polyglossia extsizes xcolor ms collection-langother;
   };
 
   ezraFont = stdenv.mkDerivation rec {
@@ -58,12 +58,11 @@ in
     ];
 
     buildPhase = ''
-      latexmk --xelatex adam-torah.tex
+      mkdir $out
     '';
     
     installPhase = ''
-      mkdir -p $out
-      cp adam-torah.pdf $out
+      echo install
     '';
 
     FONTCONFIG_FILE = makeFontsConf { fontDirectories = fonts; };

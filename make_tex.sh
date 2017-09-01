@@ -23,4 +23,3 @@ echo "\begin{torah}"
 $BASE/get_verse.sh $BOOK con $STARTCHAP $STARTVERSE $ENDCHAP $ENDVERSE
 echo "\end{torah}"
 echo "\end{document}"
-
