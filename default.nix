@@ -4,21 +4,6 @@ let
     inherit (texlive) scheme-basic xetex xetex-def euenc bidi latexmk polyglossia extsizes xcolor ms;
   };
 
-  ezraFont = stdenv.mkDerivation rec {
-    version = "251";
-    name = "EzraSIL${version}";
-    src = fetchzip {
-      url = "http://scripts.sil.org/cms/scripts/render_download.php?format=file&media_id=EzraSIL251.zip&filename=EzraSIL${version}.zip";
-      name = "EzraSIL${version}.zip";
-      sha256 = "1jbir312s5pw4rw8ylbpq0qpdg0x26kpzdb36dcsb496jwpn4flb";
-    };
-
-    installPhase = ''
-      mkdir -p $out/share/fonts/
-      cp *.ttf $out/share/fonts/
-    '';
-  };
-
   fontDev = name: sha256: stdenv.mkDerivation rec {
     inherit name;
     src = fetchurl {
