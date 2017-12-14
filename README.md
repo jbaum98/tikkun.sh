@@ -1,12 +1,12 @@
-# Torah Reading Maker
+# Tikkun.sh
 
-Creates beautiful Torah reading sheets.
+Create beautiful Torah reading sheets from the command line.
 
 ## Getting Started
 
 ### Prerequisites
 
-[The Nix Package Manger](https://nixos.org/nix) is used to manage dependencies and building of the sheets.
+[The Nix Package Manger](https://nixos.org/nix) is used to manage dependencies and compilation.
 To install it, follow the instructions [here](https://nixos.org/nix/download.html).
 
 ### Installing
