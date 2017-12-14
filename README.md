@@ -37,7 +37,9 @@ This project is licensed under the MIT License - see the [LICENSE.txt](LICENSE.t
 
 # Acknowledgements
 
-- The Hebrew unicode text files are downloaded from https://www.tanach.us.
+- The Hebrew unicode XML files are downloaded from https://www.tanach.us and transformed using XSLT templates
+  based on the ones they provide.
+- [libxslt](http://xmlsoft.org/libxslt/) is used to parse and transform the XML files to produce TeX files.
 - The font family is [Shlomo](https://sites.google.com/site/orlaeinayim/introduction-to-fonts-with-hebrew-cantillation-marks),
   a modified version of [Ezra SIL](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=EzraSIL_Home) designed to make it
   easier to distingiush between similar looking Hebrew letters such as ג and נ or ד and ר.
