@@ -37,10 +37,8 @@
 
 \setlength{\parskip}{1em}
 \newcommand\setspacing{
-\tolerance=1600
 \fontdimen2\font=0.4em% interword space
 \fontdimen3\font=\textwidth% interword stretch
 \fontdimen4\font=0.2em% interword shrink
 \fontdimen7\font=0.1em% extra space
-\hyphenchar\font=-1% no hyphenation
 }

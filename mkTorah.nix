@@ -1,4 +1,4 @@
-{ stdenv, callPackage, fetchurl, fetchzip, makeFontsConf, texlive, libxslt, unzip }:
+{ stdenv, lib, callPackage, fetchurl, fetchzip, makeFontsConf, texlive, libxslt, unzip }:
 let
   tex = texlive.combine {
     inherit (texlive) scheme-basic xetex xetex-def euenc bidi latexmk polyglossia extsizes xcolor ms;
@@ -9,7 +9,9 @@ let
 in { book, startChapter, startVerse, endChapter, endVerse }:
   stdenv.mkDerivation rec {
     name = "${book}_${startChapter}_${startVerse}_${endChapter}_${endVerse}";
-    src = ./.;
+
+    src = lib.sourceFilesBySuffices ./. [".cls"];
+
     buildInputs = [
       tex
       libxslt
