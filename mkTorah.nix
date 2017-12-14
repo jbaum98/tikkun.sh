@@ -1,4 +1,4 @@
-{ stdenv, callPackage, fetchurl, fetchzip, makeFontsConf, texlive, unzip }:
+{ stdenv, callPackage, fetchurl, fetchzip, makeFontsConf, texlive, libxslt, unzip }:
 let
   tex = texlive.combine {
     inherit (texlive) scheme-basic xetex xetex-def euenc bidi latexmk polyglossia extsizes xcolor ms;
@@ -12,14 +12,14 @@ in { book, startChapter, startVerse, endChapter, endVerse }:
     src = ./.;
     buildInputs = [
       tex
+      libxslt
     ];
 
-  torahAccents = callPackage ./torahAccents.nix {};
-  torahConsonants = callPackage ./torahConsonants.nix {};
+  torahXML = callPackage ./torahXML.nix {};
+  bookFile = "${torahXML}/Books/${book}.xml";
 
   buildPhase = ''
-    source ${./torah.sh}
-    make_tex ${book} ${startChapter} ${startVerse} ${endChapter} ${endVerse} > ${name}.tex
+    xsltproc --param chapter ${startChapter} --param verse ${startVerse} --param lastchapter ${endChapter} --param lastverse ${endVerse} ${./XML2LaTeX.xsl.xml} ${bookFile} > ${name}.tex
     latexmk --xelatex "${name}.tex"
   '';
 

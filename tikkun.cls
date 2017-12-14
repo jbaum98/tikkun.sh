@@ -1,4 +1,10 @@
-\documentclass[20pt]{extarticle}
+\NeedsTeXFormat{LaTeX2e}
+
+\ProvidesClass{tikkun}[2017/12/14 Tikkun Class]
+
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{extarticle}}
+\ProcessOptions\relax
+\LoadClass{extarticle}
 
 \extrafloats{1000}
 
@@ -7,9 +13,9 @@
    \def\marginparoutside{\@mparswitchtrue}
 \makeatother
 
-\usepackage[letterpaper, nohead, twoside,  margin=1in, marginparsep=0.5in]{geometry}
-\usepackage[dvipsnames]{xcolor}
-\usepackage{polyglossia}
+\RequirePackage[letterpaper, nohead, twoside, margin=1in, marginparwidth=0.5in, marginparsep=0.1in]{geometry}
+\RequirePackage[dvipsnames]{xcolor}
+\RequirePackage{polyglossia}
 
 \setdefaultlanguage{hebrew}
 \setmainfont{Shlomo}
@@ -31,13 +37,10 @@
 
 \setlength{\parskip}{1em}
 \newcommand\setspacing{
+\tolerance=1600
 \fontdimen2\font=0.4em% interword space
 \fontdimen3\font=\textwidth% interword stretch
-\fontdimen4\font=0.1em% interword shrink
+\fontdimen4\font=0.2em% interword shrink
 \fontdimen7\font=0.1em% extra space
+\hyphenchar\font=-1% no hyphenation
 }
-
-\begin{document}
-
-\setspacing
-\marginparright
