@@ -131,9 +131,11 @@
   <xsl:text>\setspacing&#x000A;</xsl:text>
   <xsl:text>\marginparright&#x000A;</xsl:text>
   <xsl:value-of select="$section"/>
+  <xsl:text>\begin{pointed}</xsl:text>
   <xsl:call-template name="GetChapters">
       <xsl:with-param name="format" select="'Full'" />
   </xsl:call-template>
+  <xsl:text>\end{pointed}&#x000A;</xsl:text>
 
   <xsl:text>&#x000A;\pagebreak&#x00A;</xsl:text>
 
@@ -463,7 +465,7 @@
 
 <!--========================================================================-->
 <xsl:template name="pe">
-  <xsl:text>&#1508; </xsl:text>
+  <xsl:text>\pespace{}</xsl:text>
 </xsl:template>
 <!-- ====================================================================== -->
 
@@ -471,7 +473,7 @@
 
 <!--========================================================================-->
 <xsl:template name="samekh">
-  <xsl:text>&#1505; </xsl:text>
+  <xsl:text>\samechspace{}</xsl:text>
 </xsl:template>
 <!-- ====================================================================== -->
 

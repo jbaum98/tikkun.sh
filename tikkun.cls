@@ -27,15 +27,26 @@
 \newcommand{\pnum}[1]{\hspace{0pt}\marginpar{\textcolor{Gray}{\rmfamily \hebrewnumeral{#1}}}}
 \reversemarginpar
 
-\newenvironment{torah}
+\newenvironment{pointed}
 { % ENTER
-\ttfamily
 \setspacing
+\newcommand\pespace{\hbox to 5em{\small\hfil{}פ{}\hfil}}
+\newcommand\samechspace{\hbox to 3em{\small\hfil{}ס\hfil}}
 }
 { % EXIT
 }
 
-\setlength{\parskip}{1em}
+\newenvironment{torah}
+{ % ENTER
+\ttfamily
+\setspacing
+\newcommand\pespace{\par}
+\newcommand\samechspace{\hspace{3em}}
+}
+{ % EXIT
+}
+
+\setlength{\parskip}{0pt}
 \newcommand\setspacing{
 \fontdimen2\font=0.4em% interword space
 \fontdimen3\font=\textwidth% interword stretch
