@@ -28,8 +28,8 @@ nix-build --argstr book Genesis --argstr startChapter 1 --argstr startVerse 1 --
 open result/Genesis_1_1_1_10.pdf
 ```
 
-<image src="https://user-images.githubusercontent.com/5283991/29955856-bc21ecbc-8eb0-11e7-802e-d3ee6905d013.jpg" width="1000px"></image>
-<image src="https://user-images.githubusercontent.com/5283991/29955857-bc23bf7e-8eb0-11e7-826e-736cd74b97fa.jpg" width="1000px"></image>
+<image src="https://user-images.githubusercontent.com/5283991/34024730-d160a986-e119-11e7-9cbe-9da1ee9b9036.jpg" width="1000px"></image>
+<image src="https://user-images.githubusercontent.com/5283991/34024732-d47ca1f6-e119-11e7-87b9-fc085350bb0e.jpg" width="1000px"></image>
 
 # License
 
