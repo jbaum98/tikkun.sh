@@ -1,3 +1,4 @@
+let deriv =
 { stdenv, lib, callPackage, writeShellScriptBin, fetchurl, fetchzip, makeFontsConf, texlive, libxslt, unzip }:
 let
   tex = texlive.combine {
@@ -13,4 +14,5 @@ in writeShellScriptBin "mkTikkun" ''
   name="$1_$2_$3_$4_$5"
   xsltproc --param chapter $2 --param verse $3 --param lastchapter $4 --param lastverse $5 ${./XML2LaTeX.xsl.xml} ${torahXML}/Books/$1.xml > $name.tex
   ${tex}/bin/latexmk --xelatex $name.tex
-''
+'';
+in (import <nixpkgs> {}).pkgs.callPackage deriv {}

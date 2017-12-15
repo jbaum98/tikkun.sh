@@ -14,7 +14,7 @@ To install it, follow the instructions [here](https://nixos.org/nix/download.htm
 Clone this repository:
 
 ```sh
-git clone https://github.com/jbaum98/torahreading-maker
+$ git clone https://github.com/jbaum98/torahreading-maker
 ```
 
 ### Creating Sheets
@@ -25,8 +25,8 @@ The simplest way to create a Torah reading sheet is to use `nix-build` to call t
 For example, to create a sheet with the first 10 verses of Genesis:
 
 ```sh
-cd torahreading-maker
-nix-build --expr "with import <nixpkgs> {}; pkgs.callPackage ./mkTorah.nix {}" --argstr book Genesis --argstr startChapter 1 --argstr startVerse 1 --argstr endChapter 1 --argstr endVerse 10
+$ cd torahreading-maker
+$ nix-build --expr "with import <nixpkgs> {}; pkgs.callPackage ./mkTorah.nix {}" --argstr book Genesis --argstr startChapter 1 --argstr startVerse 1 --argstr endChapter 1 --argstr endVerse 10
 ```
 
 This has the advantage of automatically caching the result in case you build the same set of verses twice.
@@ -34,15 +34,18 @@ It also does the build in a temporary directory and produces no temporary files.
 
 #### Using the script
 
-You can also install a script using `nix-env -i` from this directory.
-Then you can run it as.
-
+You can also install a script using
 ```sh
-mkTikkun Genesis 1 1 1 10
+$ nix-env -f . -i
+```
+from this directory. Then you can run it as.
+```sh
+$ mkTikkun Genesis 1 1 1 10
 ```
 
 This will produce the same pdf as the example above, but will produce the TeX file
-and run TeX in the current directory.
+and run TeX in the current directory. It will still cache the XML files, fonts, and LaTeX
+packages.
 
 <image src="https://user-images.githubusercontent.com/5283991/34024730-d160a986-e119-11e7-9cbe-9da1ee9b9036.jpg" width="1000px"></image>
 <image src="https://user-images.githubusercontent.com/5283991/34024732-d47ca1f6-e119-11e7-87b9-fc085350bb0e.jpg" width="1000px"></image>
